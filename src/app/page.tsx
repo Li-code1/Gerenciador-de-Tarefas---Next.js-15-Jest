@@ -1,4 +1,4 @@
-import { NovaTarefaWrapper } from "@/components/NovaTarefaWrapper";
+import { NovaTarefaWrapper } from '@/components/NovaTarefaWrapper'
 
 // Simulação de uma "API" de tarefas
 async function getTarefas() {
