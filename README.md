@@ -4,7 +4,7 @@ Este é um projeto de Gerenciador de Tarefas (To-Do List) desenvolvido para demo
 
 # 📝 Gerenciador de Tarefas - Next.js 15 & Jest
 
-![Demonstração do Projeto](./screenshot.png)
+![Demonstração do Projeto](./screenshot.png.JPG)
 
 ## 🚀 Funcionalidades
 
