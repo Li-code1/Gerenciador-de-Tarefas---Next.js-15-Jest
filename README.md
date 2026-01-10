@@ -2,8 +2,9 @@
 
 Este é um projeto de Gerenciador de Tarefas (To-Do List) desenvolvido para demonstrar habilidades em **React**, **Next.js 15**, **Tailwind CSS** e **Testes Unitários com Jest**.
 
-## 🚀 Funcionalidades
+![Demonstração do Projeto]![screenshot](https://github.com/user-attachments/assets/c022e95c-07ac-464b-8467-a102f40e69b7)
 
+## 🚀 Funcionalidades
 - **Adicionar Tarefas:** Criação dinâmica de novos itens.
 - **Concluir Tarefas:** Marcar itens como feitos com efeito visual de risco e checkbox.
 - **Excluir Tarefas:** Remoção de itens da lista.
