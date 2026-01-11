@@ -1,67 +1,69 @@
-# 📝 Gerenciador de Tarefas - Next.js 15 & Jest
+# 🚀 Gerenciador de Tarefas - Next.js 15
 
-Este é um projeto de Gerenciador de Tarefas (To-Do List) desenvolvido para demonstrar habilidades em **React**, **Next.js 15**, **Tailwind CSS** e **Testes Unitários com Jest**.
+Projeto desenvolvido como desafio técnico para a disciplina de Desenvolvimento Web. A aplicação é um ecossistema completo de gestão de tarefas (To-Do List) com foco em performance, acessibilidade e qualidade de código.
 
-Demonstração do Projeto 
+## 🔗 Links Oficiais
+- **Deploy Online:** [https://gerenciador-de-tarefas-next-js-15-jest-pqpq-lceufdy0k.vercel.app/]
+- **Repositório GitHub:** [https://github.com/Li-code1/Gerenciador-de-Tarefas---Next.js-15-Jest](https://github.com/Li-code1/Gerenciador-de-Tarefas---Next.js-15-Jest)
 
-![screenshot](https://github.com/user-attachments/assets/c022e95c-07ac-464b-8467-a102f40e69b7)
+---
 
-## 🚀 Funcionalidades
-- **Adicionar Tarefas:** Criação dinâmica de novos itens.
-- **Concluir Tarefas:** Marcar itens como feitos com efeito visual de risco e checkbox.
-- **Excluir Tarefas:** Remoção de itens da lista.
-- **Dashboard de Status:** Contador automático de tarefas Totais, Pendentes e Concluídas.
-- **Design Responsivo:** Interface moderna construída com Tailwind CSS.
+## ✨ Funcionalidades
+- **Adicionar Tarefas:** Interface intuitiva para criação de novas tarefas.
+- **Listagem Dinâmica:** Visualização clara das tarefas pendentes e concluídas.
+- **Toggle de Status:** Marcar tarefas como concluídas com feedback visual imediato.
+- **Remoção:** Exclusão individual de tarefas da lista.
+- **Contador Inteligente:** Exibição em tempo real do total de tarefas e do progresso de conclusão.
+- **Design Responsivo:** Adaptado para dispositivos móveis e desktop usando Tailwind CSS 4.
 
-## 🛠️ Tecnologias Utilizadas
+---
 
-- **Framework:** [Next.js 15](https://nextjs.org/)
-- **Linguagem:** TypeScript
-- **Estilização:** Tailwind CSS
-- **Testes:** Jest e React Testing Library
+## 🛠️ Tecnologias e Decisões Técnicas
+- **Next.js 15 (App Router):** Escolhido por ser o padrão mais moderno de roteamento e performance.
+- **Tailwind CSS 4:** Utilização da versão mais recente do framework para estilização rápida e eficiente.
+- **Custom Hook (`useContadorDeTarefas`):** Criado para isolar a lógica de negócio dos componentes de interface, facilitando os testes unitários.
+- **Lucide React:** Conjunto de ícones leves para melhorar a experiência do usuário (UX).
 
-## 📦 Como rodar o projeto
+---
 
-### 1. Instalação
-Clone o repositório e instale as dependências:
-```bash
-npm install
+## 🧪 Qualidade de Código (Testes)
+A robustez do projeto é garantida por testes automatizados utilizando **Jest** e **React Testing Library**.
 
-```
+**Cenários Testados:**
+1.  **Hooks:** Validação da lógica do contador de tarefas.
+2.  **Componentes:** Verificação da renderização da página principal e do formulário de novas tarefas.
+3.  **Interação:** Teste de fluxo de adição de novas tarefas à lista.
 
-### 2. Execução (Desenvolvimento)
-
-Como este projeto foi desenvolvido em um ambiente com restrições de instruções de CPU (popcnt), utilize o comando abaixo para garantir o funcionamento correto sem o motor Turbo:
-
-```bash
-set NEXT_TURBO=0 && npx next dev -p 7777
-
-```
-
-Acesse: [http://localhost:7777](https://www.google.com/search?q=http://localhost:7777)
-
-### 3. Rodar Testes
-
-Para validar a lógica dos componentes e o hook do contador:
-
+**Para rodar os testes:**
 ```bash
 npm test
 
 ```
 
-## 🧪 Estrutura de Testes
+---
 
-O projeto foca em garantir que:
+## 📂 Estrutura de Pastas
 
-* O contador de tarefas inicia com o valor correto.
-* Novas tarefas são adicionadas à lista.
-* A exclusão de tarefas atualiza o estado corretamente.
-
-...
-## ⚠️ Notas de Desenvolvimento
-
-Caso ocorra o erro `EADDRINUSE` ao tentar rodar na porta 7777, certifique-se de encerrar processos antigos do Node com o comando `taskkill /f /im node.exe`.
+```text
+src/
+ ├── app/             # Rotas, Layout e CSS Global
+ ├── components/      # Componentes de UI (NovaTarefa, TarefaItem, etc)
+ ├── hooks/           # Lógica de negócio isolada (Custom Hooks)
+ └── types/           # Definições de tipos TypeScript
 
 ```
 
 ---
+
+## 🚀 Como Executar Localmente
+
+1. Clone o repositório: `git clone https://github.com/Li-code1/Gerenciador-de-Tarefas---Next.js-15-Jest.git`
+2. Instale as dependências: `npm install`
+3. Inicie o servidor: `npm run dev`
+
+```
+
+---
+
+
+```
