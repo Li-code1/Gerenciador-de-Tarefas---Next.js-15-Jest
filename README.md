@@ -3,7 +3,8 @@
 Projeto desenvolvido como desafio técnico para a disciplina de Desenvolvimento Web. A aplicação é um ecossistema completo de gestão de tarefas (To-Do List) com foco em performance, acessibilidade e qualidade de código.
 
 ## 🔗 Links Oficiais
-- **Deploy Online:** [https://gerenciador-de-tarefas-next-js-15-jest-pqpq-lceufdy0k.vercel.app/]
+- **Deploy Online:** [https://gerenciador-de-tarefas-next-js-15-j-topaz.vercel.app/
+- 
 - **Repositório GitHub:** [https://github.com/Li-code1/Gerenciador-de-Tarefas---Next.js-15-Jest](https://github.com/Li-code1/Gerenciador-de-Tarefas---Next.js-15-Jest)
 
 ---
