@@ -22,7 +22,7 @@ jobs:
         run: npm ci
 
       - name: Lint check
-        run: npx next lint --dir .
+        run: npm run lint
 
       - name: Run Unit Tests (Jest)
         run: npm run test:ci
