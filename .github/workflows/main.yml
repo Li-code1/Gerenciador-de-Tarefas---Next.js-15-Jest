@@ -9,12 +9,6 @@ on:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
-    
-    # Define a pasta correta como padrão para todos os comandos
-    defaults:
-      run:
-        working-directory: ./Gerenciador-de-Tarefas---Next.js-15-Jest
-
     steps:
       - name: Checkout código
         uses: actions/checkout@v4
@@ -24,21 +18,29 @@ jobs:
         with:
           node-version: '20'
           cache: 'npm'
-          # Resolve o erro "unable to cache dependencies"
+          # Procura o package-lock em qualquer subpasta
           cache-dependency-path: '**/package-lock.json'
 
       - name: Instalar dependências
-        run: npm ci
+        # O 'find' localiza a pasta correta e o 'cd' entra nela antes de rodar o npm
+        run: |
+          cd $(find . -name package.json -printf '%h' -quit)
+          npm ci
 
       - name: Verificar Lint
-        # O "|| true" garante que se o lint falhar por causa da pasta, o deploy continua
-        run: npm run lint || true
+        run: |
+          cd $(find . -name package.json -printf '%h' -quit)
+          npm run lint || true
 
       - name: Rodar Testes (Jest)
-        run: npm run test:ci
+        run: |
+          cd $(find . -name package.json -printf '%h' -quit)
+          npm run test:ci
 
       - name: Build do Projeto
-        run: npm run build
+        run: |
+          cd $(find . -name package.json -printf '%h' -quit)
+          npm run build
 
   deploy:
     needs: build-and-test
@@ -51,9 +53,9 @@ jobs:
       - name: Deploy para Vercel
         uses: amondnet/vercel-action@v20
         with:
-          # Usa as variáveis seguras configuradas no GitHub Settings
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
           vercel-args: '--prod'
-          working-directory: ./Gerenciador-de-Tarefas---Next.js-15-Jest
+          # Aqui ele tenta achar a pasta automaticamente para o deploy
+          working-directory: .
