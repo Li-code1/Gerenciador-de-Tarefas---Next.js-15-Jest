@@ -9,32 +9,35 @@ on:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
-    # ESSA LINHA ABAIXO É A CHAVE PARA O SUCESSO:
+    
+    # Define a pasta correta como padrão para todos os comandos
     defaults:
       run:
         working-directory: ./Gerenciador-de-Tarefas---Next.js-15-Jest
-    
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout código
+        uses: actions/checkout@v4
       
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
-          cache-dependency-path: './Gerenciador-de-Tarefas---Next.js-15-Jest/package-lock.json'
+          # Resolve o erro "unable to cache dependencies"
+          cache-dependency-path: '**/package-lock.json'
 
-      - name: Install dependencies
+      - name: Instalar dependências
         run: npm ci
 
-      - name: Lint check
-        # Usamos o '|| true' para garantir que o pipeline não pare se o lint reclamar de algo bobo
+      - name: Verificar Lint
+        # O "|| true" garante que se o lint falhar por causa da pasta, o deploy continua
         run: npm run lint || true
 
-      - name: Run Unit Tests (Jest)
+      - name: Rodar Testes (Jest)
         run: npm run test:ci
 
-      - name: Build Project
+      - name: Build do Projeto
         run: npm run build
 
   deploy:
@@ -42,10 +45,13 @@ jobs:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Deploy to Vercel
+      - name: Checkout código
+        uses: actions/checkout@v4
+
+      - name: Deploy para Vercel
         uses: amondnet/vercel-action@v20
         with:
+          # Usa as variáveis seguras configuradas no GitHub Settings
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
