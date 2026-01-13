@@ -62,7 +62,7 @@ src/
 2. Instale as dependências: `npm install`
 3. Inicie o servidor: `npm run dev`
 
-```
+
 ## 🚀 Automação e CI/CD
 
 Este projeto utiliza uma pipeline de **CI/CD** (Continuous Integration e Continuous Deployment) via **GitHub Actions** para garantir a qualidade do código e a entrega contínua.
