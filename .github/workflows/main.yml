@@ -1,0 +1,45 @@
+name: Pipeline Gerenciador de Tarefas
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint check
+        run: npm run lint
+
+      - name: Run Unit Tests (Jest)
+        run: npm run test:ci
+
+      - name: Build Project
+        run: npm run build
+
+  deploy:
+    needs: build-and-test
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Deploy to Vercel
+        uses: amondnet/vercel-action@v20
+        with:
+          vercel-token: ${{ secrets.e2z2kg38P9R0eAJZQIhn7hB1 }}
+          vercel-org-id: ${{ secrets.team_mpMsRVFqU2MhbMSDr2KDs3mM }}
+          vercel-project-id: ${{ secrets.prj_5iPM5uYnNpVwTZT1WqiK43XkJKLi }}
+          vercel-args: '--prod'
