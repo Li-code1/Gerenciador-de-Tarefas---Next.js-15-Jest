@@ -18,16 +18,17 @@ jobs:
         with:
           node-version: '20'
           cache: 'npm'
-          # Procura o package-lock em qualquer subpasta
+          # Procura o arquivo de trava em qualquer subpasta para evitar erro de cache
           cache-dependency-path: '**/package-lock.json'
 
       - name: Instalar dependências
-        # O 'find' localiza a pasta correta e o 'cd' entra nela antes de rodar o npm
+        # O comando abaixo entra na pasta onde o package.json estiver e instala tudo
         run: |
           cd $(find . -name package.json -printf '%h' -quit)
           npm ci
 
       - name: Verificar Lint
+        # O "|| true" garante que o pipeline não pare se houver avisos de lint
         run: |
           cd $(find . -name package.json -printf '%h' -quit)
           npm run lint || true
@@ -53,9 +54,10 @@ jobs:
       - name: Deploy para Vercel
         uses: amondnet/vercel-action@v20
         with:
+          # Nomes dos Secrets configurados no seu GitHub
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          vercel-args: '--prod'
-          # Aqui ele tenta achar a pasta automaticamente para o deploy
+          # O "--yes" pula as perguntas de confirmação da Vercel
+          vercel-args: '--prod --yes'
           working-directory: .
