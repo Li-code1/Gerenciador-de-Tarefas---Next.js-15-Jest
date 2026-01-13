@@ -78,7 +78,4 @@ Este projeto utiliza uma pipeline de **CI/CD** (Continuous Integration e Continu
 ![CI/CD Status](https://github.com/Li-code1/Gerenciador-de-Tarefas---Next.js-15-Jest/actions/workflows/main.yml/badge.svg)
 
 🔗 **Link do Deploy:** [Acesse o Gerenciador de Tarefas](https://gerenciador-de-tarefas-next-js-15-jest-pqpq-hfzojb4w4.vercel.app)
----
 
-
-```
