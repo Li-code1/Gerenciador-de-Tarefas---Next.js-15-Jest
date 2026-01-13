@@ -63,7 +63,21 @@ src/
 3. Inicie o servidor: `npm run dev`
 
 ```
+## 🚀 Automação e CI/CD
 
+Este projeto utiliza uma pipeline de **CI/CD** (Continuous Integration e Continuous Deployment) via **GitHub Actions** para garantir a qualidade do código e a entrega contínua.
+
+### O que a Pipeline faz:
+1.  **Instalação:** Configura o ambiente Node.js e instala todas as dependências de forma limpa.
+2.  **Linting:** Analisa o código em busca de erros de padrão e boas práticas.
+3.  **Testes Unitários:** Executa a suíte de testes com **Jest** e **React Testing Library**. O deploy só acontece se todos os testes passarem.
+4.  **Build:** Gera a versão de produção do Next.js.
+5.  **Deploy Automatizado:** Envia o código aprovado automaticamente para a **Vercel**.
+
+### Status do Projeto:
+![CI/CD Status](https://github.com/Li-code1/Gerenciador-de-Tarefas---Next.js-15-Jest/actions/workflows/main.yml/badge.svg)
+
+🔗 **Link do Deploy:** [Acesse o Gerenciador de Tarefas](https://gerenciador-de-tarefas-next-js-15-jest-pqpq-hfzojb4w4.vercel.app)
 ---
 
 
